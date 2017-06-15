@@ -40,7 +40,7 @@ router.post("/", middleware.isAuthenticated, function(req, res) {
           console.log("New post created.");
           req.flash("success", "New post created.");
           
-          res.redirect('/post/' + post._id);
+          res.redirect('/posts/' + post._id);
       }
    });
     

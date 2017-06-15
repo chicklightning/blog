@@ -6,6 +6,7 @@ var mongoose    = require("mongoose");
 var postSchema = new mongoose.Schema({
     
     image: String,
+    overlay: String,
     caption: String,
     videoURL: String,
     timeStamp: {

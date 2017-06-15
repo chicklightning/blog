@@ -1,6 +1,37 @@
 <% include ../partials/header %>
 
+<br>
 
+<div class = "container">
+    <div class = "text-center">
+            <img src="https://68.media.tumblr.com/0d8c809da8f9b5cb972b04f5671e1231/tumblr_orjx0e9jmH1rd8b7uo1_1280.png" width = "400" alt="Because I already wear glasses.">
+    </div>
+</div>
+
+
+<% var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; %>
+
+<br>
+
+<div class = "container">
+  <div class="row text-center" style="display:flex; flex-wrap: wrap;">
+        <% posts.forEach(function(post){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail" style = "border: 0 none; box-shadow: none; background: transparent;">
+                    <a href="/posts/<%= post._id %>">
+                       <img src="<%= post.image %>" onmouseover="this.src='<%= post.overlay %>';"
+                        width = "300" onmouseout="this.src='<%= post.image %>';"/>
+                    </a>
+                    <div class="text-center">
+                       <h5><small><%= post.timeStamp.toLocaleDateString("en-US", options) %></small></h5>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+
+<br>
 
 
 <% include ../partials/footer %>

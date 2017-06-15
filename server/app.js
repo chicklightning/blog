@@ -63,5 +63,5 @@ app.use("/posts", postRoutes);
 
 // START SERVER
 app.listen(process.env.PORT, process.env.IP, function() {
-    console.log("Blog server started, listening on port " + process.env.PORT);
+    console.log("Blog server started, listening on port " + process.env.PORT + ".");
 })

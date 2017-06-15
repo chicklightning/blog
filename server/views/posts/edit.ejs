@@ -1,5 +1,33 @@
 <% include ../partials/header %>
 
+<div class = "container-fluid">
+    <br>
+    <div class = "text-center">
+        <img src = "https://68.media.tumblr.com/fe9f9a1b4853c2a95951730ee1d9f1de/tumblr_orkfx68wwq1rd8b7uo1_1280.png" width = "500">
+    </div>
+    <form action = "/posts" method="POST">
+        <div class = "form-group" style="width: 50%; margin: 25px auto;">
+            <label>Video URL</label>
+            <input class = "form-control" type = "text" name = "post[videoURL]" value="<%= post.videoURL %>" required>
+        </div>
+        <div class = "form-group" style="width: 50%; margin: 25px auto;">
+            <label>Static Image URL</label>
+            <input class = "form-control" type = "text" name = "post[image]" value="<%= post.image %>" required>
+        </div>
+        <div class = "form-group" style="width: 50%; margin: 25px auto;">
+            <label>Overlay Image URL</label>
+            <input class = "form-control" type = "text" name = "post[overlay]" value="<%= post.overlay %>" required>
+        </div>
+        <div class="form-group" style="width: 50%; margin: 25px auto;">
+            <label>Caption</label>
+            <input type="text" name = "post[caption]" class="form-control" value="<%= post.caption %>" required>
+            <br>
+            <button type="submit" class="btn btn-secondary btn-block">Submit</button>
+        </div>
+    </form>
+</div>
+
+<br>
 
 
 

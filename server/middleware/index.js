@@ -2,6 +2,7 @@ var middlewareObj   = {};
 
 middlewareObj.isAuthenticated = function(req, res, next) {
     if(req.isAuthenticated()) {
+        req.user.username = "Gabrielle";
         return next();
     }
     
