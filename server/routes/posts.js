@@ -52,7 +52,8 @@ router.get("/:id", function(req, res) {
     
     Post.findById(req.params.id, function(err, post) {
         if(err) {
-            console.log("Error retrieving post with id: " + req.params.id);
+            if( req.params.id != "bootstrap.min.js")
+                console.log("Error retrieving post with id: " + req.params.id);
             res.redirect("/posts");
         }
         else {

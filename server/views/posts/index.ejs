@@ -15,12 +15,12 @@
 
 <div class = "container">
   <div class="row text-center" style="display:flex; flex-wrap: wrap;">
-        <% posts.forEach(function(post){ %>
+        <% posts.reverse().forEach(function(post){ %>
             <div class="col-md-3 col-sm-6">
                 <div class="thumbnail" style = "border: 0 none; box-shadow: none; background: transparent;">
                     <a href="/posts/<%= post._id %>">
                        <img src="<%= post.image %>" onmouseover="this.src='<%= post.overlay %>';"
-                        width = "300" onmouseout="this.src='<%= post.image %>';"/>
+                        width = "300" onmouseout="this.src='<%= post.image %>';">
                     </a>
                     <div class="text-center">
                        <h5><small><%= post.timeStamp.toLocaleDateString("en-US", options) %></small></h5>

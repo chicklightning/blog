@@ -1,15 +1,45 @@
 <% include ../partials/header %>
 
 <br>
-
+<% var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }; %>
 
 <div class = "container">
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="<%= post.videoURL %>" allowtransparency="true" style="background: #FFFFFF;"></iframe>
+    <div class = "text-center">
+        <iframe src="<%= post.videoURL %>" width = "475" height = "475" frameborder="0"></iframe>
     </div>
+    <br>
+    
+    <div class = "text-center">
+        <h3>
+            <small style = "padding-right:0.25em;">
+                <%= post.caption %>
+            </small>
+            
+            <form class = "form-inline" style="display: inline;">
+                <button class = "btn btn-link" data-toggle="popover" data-placement="right" data-content="<%= post.likes %> likes">
+                    <img src = "https://68.media.tumblr.com/bbdbf42ba9ebb625508a44488f1737cc/tumblr_ornlkbb8391rd8b7uo1_500.png" width = "25"
+                    onmouseover="this.src='https://68.media.tumblr.com/5cfeb957766c37cf57ca9f9596be02eb/tumblr_ornlkbb8391rd8b7uo2_500.png';" onmouseout="this.src='https://68.media.tumblr.com/bbdbf42ba9ebb625508a44488f1737cc/tumblr_ornlkbb8391rd8b7uo1_500.png';">
+                    
+                </button>
+            </form>
+            
+        </h3>
+        
+        <hr style = "display: block;
+        width: 400px;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        padding: 0;" align = "center">
+        
+        <h5><small><%= post.timeStamp.toLocaleDateString("en-US", options) %></small></h5>
+    </div>
+    
+    
 </div>
 
 
+<br>
 <br>
 
 <% include ../partials/footer %>
