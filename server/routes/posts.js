@@ -69,7 +69,7 @@ router.get("/:id/edit", middleware.isAuthenticated, function(req, res) {
    
    Post.findById(req.params.id, function(err, post) {
        if(err) {
-           console.log("Unable to find post with id: " + req.params.id);
+           console.log("Unable to retrieve post with id: " + req.params.id);
            res.redirect("/posts");
        }
        
@@ -95,6 +95,23 @@ router.put("/:id", middleware.isAuthenticated, function(req, res) {
             console.log("Updated post with id: " + req.params.id);
             res.redirect("/posts/" + req.params.id);
         }
+    });
+});
+
+router.post("/:id/like", function(req, res) {
+    
+    // only update the number of likes on a post
+    Post.findById(req.params.id, function(err, post) {
+        if(err) {
+            console.log("Unable to retrieve post with id: " + req.params.id);
+            res.redirect("/posts");
+        }
+        else {
+            post.likes += 1;
+            post.save();
+            res.redirect("/posts/" + req.params.id);
+        }
+        
     });
 });
 

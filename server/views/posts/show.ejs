@@ -7,20 +7,35 @@
     <div class = "text-center">
         <iframe src="<%= post.videoURL %>" width = "475" height = "475" frameborder="0"></iframe>
     </div>
-    <br>
     
     <div class = "text-center">
+        
+        <% if(currentUser && currentUser.username == "Gabrielle"){ %>
+            <a href = "/posts/<%= post._id %>/edit">
+                <button class = "btn btn-warning btn-sm" style = "transform: translateX(-185px);">
+                    Edit
+                </button>
+            </a>
+            <form style = "display: inline;" action="/posts/<%= post._id %>?_method=DELETE" method="POST">
+                <button class = "btn btn-danger btn-sm" style = "transform: translateX(185px);">
+                    Delete
+                </button>
+            </form>
+        <% } %>
+        
+        <br>
         <h3>
-            <small style = "padding-right:0.25em;">
+            <small style = "padding-right:0.1em;">
                 <%= post.caption %>
             </small>
             
-            <form class = "form-inline" style="display: inline;">
-                <button class = "btn btn-link" data-toggle="popover" data-placement="right" data-content="<%= post.likes %> likes">
+            <form method = "POST" action = "/posts/<%= post._id %>/like" style="display: inline;">
+                <button type = "submit" class = "btn btn-link">
                     <img src = "https://68.media.tumblr.com/bbdbf42ba9ebb625508a44488f1737cc/tumblr_ornlkbb8391rd8b7uo1_500.png" width = "25"
                     onmouseover="this.src='https://68.media.tumblr.com/5cfeb957766c37cf57ca9f9596be02eb/tumblr_ornlkbb8391rd8b7uo2_500.png';" onmouseout="this.src='https://68.media.tumblr.com/bbdbf42ba9ebb625508a44488f1737cc/tumblr_ornlkbb8391rd8b7uo1_500.png';">
                     
                 </button>
+                <span class="badge"><%= post.likes %> likes</span>
             </form>
             
         </h3>

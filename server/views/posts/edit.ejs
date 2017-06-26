@@ -5,7 +5,7 @@
     <div class = "text-center">
         <img src = "https://68.media.tumblr.com/fe9f9a1b4853c2a95951730ee1d9f1de/tumblr_orkfx68wwq1rd8b7uo1_1280.png" width = "500">
     </div>
-    <form action = "/posts" method="POST">
+    <form action="/posts/<%= post._id %>?_method=PUT" method="POST">
         <div class = "form-group" style="width: 50%; margin: 25px auto;">
             <label>Video URL</label>
             <input class = "form-control" type = "text" name = "post[videoURL]" value="<%= post.videoURL %>" required>
