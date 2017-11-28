@@ -23,7 +23,8 @@ app.use(flash());
 // ------------------ //
 // -----MONGOOSE----- //
 // ------------------ //
-mongoose.connect("mongodb://localhost/blog");
+var url = process.env.DATABASEURL || "mongodb://localhost/blog";
+mongoose.connect(url);
 var Post    = require("./models/post"),
     User    = require("./models/user");
 
